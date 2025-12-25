@@ -5,10 +5,12 @@ class Urls:
 
     SAMOKAT_URL='https://qa-scooter.praktikum-services.ru/'
     ORDER_PAGE = 'https://qa-scooter.praktikum-services.ru/order'
+
+class DzenUrls:
     DZEN_URL = 'https://dzen.ru/?yredirect=true'
 
 class Config:
-    DEFAULT_TIMEOUT =   10
+    DEFAULT_TIMEOUT =   5
 
 
 class OrderAnswer:
@@ -33,7 +35,24 @@ class OrderPageTestData:
     COLOR = 'черный жемчуг'
     COMMENT_DATA = 'любой кмментарий'
 
+    ORDER_BUTTON1 = (By.XPATH, "//button[@class = 'Button_Button__ra12g']")
+    NAME1 = 'Марья'
+    LAST_NAME1 = 'Иванова'
+    ADRESS1 = 'улица Ленина 2'
+    STATION1 = 'Выхино'
+    PHONE1 = '79266667789'
+    DATE1 = '12.10.2026'
+    TIME1 = 'сутки'
+    COLOR1 = 'черный жемчуг'
+    COMMENT_DATA1 = 'любой кмментарий'
+
+
+
+
+
+
 
 class DzenPageTestData:
     DZEN_LOGIN_BUTTON = 'Войти'
+
 

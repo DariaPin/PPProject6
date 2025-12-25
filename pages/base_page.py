@@ -18,6 +18,8 @@ class BasePage:
         WebDriverWait(self.driver, Config.DEFAULT_TIMEOUT).until(EC.visibility_of_element_located(locator))
         return self.driver.find_element(*locator)
 
+
+
     @allure.step('Подождать и кликнуть')
     def wait_and_click(self, locator):
         element = self.wait_and_find_element(locator)
@@ -56,3 +58,7 @@ class BasePage:
             ).click()
         except TimeoutException:
             pass
+
+    def switch_window(self):
+        WebDriverWait(self.driver, 10).until(EC.number_of_windows_to_be(2))
+        self.driver.switch_to.window(self.driver.window_handles[1])

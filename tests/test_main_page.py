@@ -1,3 +1,4 @@
+import allure
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from data import OrderAnswer
@@ -13,6 +14,8 @@ class TestMainPage:
          (3, 3, OrderAnswer.ANSWER_4), (4, 4, OrderAnswer.ANSWER_5), (5, 5, OrderAnswer.ANSWER_6),
          (6, 6, OrderAnswer.ANSWER_7), (7, 7, OrderAnswer.ANSWER_8)]
     )
+
+    @allure.step("Проверяем соответствие ответа и вопроса в выпадающем опроснике")
     def test_faq_answer_question(self, driver, question_number, answer_number, expected_answer):
         page = MainPage(driver)
         page.open()
