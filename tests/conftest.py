@@ -1,9 +1,6 @@
 import pytest
 from selenium import webdriver
 import data
-from data import Urls
-from webdriver_manager.chrome import ChromeDriverManager
-from webdriver_manager.firefox import GeckoDriverManager
 from pages.main_page import MainPage
 from pages.order_page import OrderPage
 

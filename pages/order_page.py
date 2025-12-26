@@ -10,9 +10,6 @@ import time
 
 
 import data
-from pages.base_page import BasePage
-from locators.order_page_locators import OrderPageLocators
-from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -58,9 +55,6 @@ class OrderPage(BasePage):
     def set_phone_input(self, phone):
         self.send_keys(OrderPageLocators.PHONE_INPUT, phone)
 
-    #def click_order_button(self):
-        #self.wait_and_click(OrderPageLocators.NEXT_BUTTON)
-
     def previos_button_is_displayed(self):
         self.wait_and_find_element(OrderPageLocators.PREVIOUS_BUTTON)
 
@@ -86,16 +80,11 @@ class OrderPage(BasePage):
         )
         option.click()
 
-    # def set_color_input(self, color):
-    #     color_checkbox = self.wait_and_find_element(OrderPageLocators.COLOR_CHECKBOX)
-    #     color_checkbox.send_keys(Keys.ENTER)
-
     def set_color(self, color):
         if color == "чёрный жемчуг":
             self.click_js(OrderPageLocators.BLACK_SCOOTER)
         elif color == "серая безысходность":
             self.click_js(OrderPageLocators.GREY_SCOOTER)
-
 
     def send_comment_data(self,comment_data):
         self.send_keys(OrderPageLocators.COMMENT,comment_data)
@@ -106,7 +95,6 @@ class OrderPage(BasePage):
 
     def click_samokat_button(self):
         self.wait_and_click(OrderPageLocators.SAMOKAT_LINK)
-
 
     def profile_title_is_displayed(self):
          boolean_profile_title_is_displayed = self.wait_for_presence(OrderPageLocators.PROFILE_NAME)
@@ -127,8 +115,6 @@ class OrderPage(BasePage):
         except TimeoutException:
 
             pass
-
-
 
     def click_order_button(self):
         wait = WebDriverWait(self.driver, 5)

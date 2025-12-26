@@ -1,22 +1,33 @@
-import pytest
-from selenium import webdriver
-from selenium.webdriver.common.by import By
+import allure
 
 from pages.dzen_page import DzenPage
 from pages.order_page import OrderPage
 from data import OrderPageTestData, DzenUrls
-from pages.main_page import MainPage
-from data import Urls
-from locators.order_page_locators import OrderPageLocators
-from tests.conftest import order_page
 
 class Test_Dzen_Page:
+
+    @allure.epic("Переходы по внешним ссылкам")
+    @allure.feature("Яндекс → Дзен")
+    @allure.story("Переход на страницу Дзена по логотипу")
+    @allure.title("Переход на Дзен по клику на логотип Яндекса")
+    @allure.severity(allure.severity_level.CRITICAL)
+
     def test_dzen_link_redirect(self, driver):
         order_page = OrderPage(driver)
-        order_page.open()
-        order_page.safe_click_yandex_logo()
-        order_page.switch_window()
+
+        with allure.step("Открыть главную страницу Самоката"):
+            order_page.open()
+
+        with allure.step("Нажать на логотип Яндекса"):
+            order_page.safe_click_yandex_logo()
+
+        with allure.step("Переключиться на новую вкладку"):
+            order_page.switch_window()
+
         dzen_page = DzenPage(driver)
 
-        assert dzen_page.is_logo_visible()
-        assert driver.current_url == DzenUrls.DZEN_URL
+        with allure.step("Проверить, что логотип Дзена отображается"):
+            assert dzen_page.is_logo_visible()
+
+        with allure.step("Проверить, что URL соответствует странице Дзена"):
+            assert dzen_page.get_current_url() == DzenUrls.DZEN_URL

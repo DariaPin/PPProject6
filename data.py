@@ -10,7 +10,7 @@ class DzenUrls:
     DZEN_URL = 'https://dzen.ru/?yredirect=true'
 
 class Config:
-    DEFAULT_TIMEOUT =   5
+    DEFAULT_TIMEOUT =   15
 
 
 class OrderAnswer:
